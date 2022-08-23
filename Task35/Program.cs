@@ -7,4 +7,26 @@
 // [1, 2, 3, 6, 2] -> 0
 // [10, 11, 12, 13, 14] -> 5
 
-Console.WriteLine("Hello, World!");
+int[] GreateArrayRndInt(int size, int min, int max)
+{
+    int[] array = new int[size];
+    Random rnd = new Random();
+    for (int i = 0; i < size; i++)
+    {
+        array[i] = rnd.Next(min, max + 1);
+    }
+    return array;
+}
+
+int[] arr = GreateArrayRndInt(12, -9, 9);
+PrintArray(arr);
+
+void PrintArray(int[]array)
+{
+    for (int i = 0; i < array.Length; i++)
+    {
+        if (i == 0) Console.Write("[");
+        else if (i > 0 && i < array.Length - 1) Console.Write($"{array[1]},");
+        else Console.Write($"{array[i]}]");
+    }
+}
