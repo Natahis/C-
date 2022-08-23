@@ -7,7 +7,7 @@
 // [1, 2, 3, 6, 2] -> 0
 // [10, 11, 12, 13, 14] -> 5
 
-int[] GreateArrayRndInt(int size, int min, int max)
+int[] GreateArray(int size, int min, int max)
 {
     int[] array = new int[size];
     Random rnd = new Random();
@@ -18,15 +18,28 @@ int[] GreateArrayRndInt(int size, int min, int max)
     return array;
 }
 
-int[] arr = GreateArrayRndInt(12, -9, 9);
-PrintArray(arr);
-
-void PrintArray(int[]array)
+void PrintArray(int[] array)
 {
     for (int i = 0; i < array.Length; i++)
     {
-        if (i == 0) Console.Write("[");
-        else if (i > 0 && i < array.Length - 1) Console.Write($"{array[1]},");
+        if (i == 0) Console.Write($"[{array[i]},");
+        else if (i > 0 && i < array.Length - 1) Console.Write($"{array[i]},");
         else Console.Write($"{array[i]}]");
     }
 }
+
+int Count(int[] array)
+{
+    int count = 0;
+    for (int i = 0; i < array.Length; i++)
+    {
+        if (array[i] >= 10 && array[i] <= 99) count++;
+    }
+    return count;
+}
+int[] arr = GreateArray(123, 0, 100);
+PrintArray(arr);
+int rezult = Count(arr);
+Console.WriteLine($" -> {rezult}");
+
+
